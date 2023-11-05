@@ -3,6 +3,7 @@ import '../assets/Login.css'
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import axios from 'axios';
 const Login = () => {
     const { SignIn } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -11,11 +12,21 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
+        //const user = { email, password }
+
         SignIn(email, password)
             .then(result => {
+                const loggedInUser = result.user;
+                console.log(loggedInUser)
+                const user = { email }
                 console.log(result);
+                //get access token
+                // axios.post('http://localhost:5000/jwt', user, {withCredentials:true})
+                //     .then(res => {
+                //         console.log(res.data)
+                // })
                 toast.success("Login Sucessfull");
-                navigate("/");
+                //navigate("/");
             })
             .catch(error => {
                 toast(error.message)
