@@ -27,6 +27,7 @@ const useAxiosSecure = () => {
         }
         )
     }, [])
+    return axiosSeceure
 };
 
 export default useAxiosSecure;
