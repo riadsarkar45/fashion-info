@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom';
 
 const ServiceCard = ({ servs }) => {
-    const { imgUrl, desc, serviceName, serviceLoc, serviceCat, servicePrice, email } = servs;
+    const { imgUrl, desc, serviceName, serviceLoc, serviceCat, servicePrice, email, _id } = servs;
     return (
         <div>
             <div className="bg-white  w-[21rem]">
@@ -17,7 +18,7 @@ const ServiceCard = ({ servs }) => {
                     }}
                 />
                 <div className='flex mt-3 gap-3 items-center ml-4'>
-                    <img src="https://i.ibb.co/MZwCv5m/tech-daily-pz-L0-Yp-SVv-E-unsplash.jpg" className='rounded-3xl h-[4rem] w-[20%]' alt="" />
+                    <img src={imgUrl} className='rounded-3xl h-[4rem] w-[20%]' alt="" />
                     <h2 className='text-2xl text-black'>Riad Sarkar</h2>
                 </div>
 
@@ -31,7 +32,7 @@ const ServiceCard = ({ servs }) => {
                 </div>
 
                 <div className='p-4'>
-                    <button className="btn btn-primary w-full">See Details</button>
+                    <Link to={`/detail/${_id}`}><button className="btn btn-primary w-full">See Details</button></Link>
                 </div>
             </div>
         </div>
