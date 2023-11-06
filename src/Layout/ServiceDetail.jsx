@@ -3,9 +3,10 @@ import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import Swal from 'sweetalert2'
 import axios from "axios";
+import ProviderServ from "./ProviderServ.jsx/ProviderServ";
 const ServiceDetail = () => {
     const [service, setService] = useState([])
-    const { user } = useContext(AuthContext);
+    const [filteredService, setFilteredService] = useState([]); const { user } = useContext(AuthContext);
     const loader = useLoaderData();
     const { imgUrl, desc, serviceName, servicePrice, serviceLoc, serviceCat, email, _id } = loader;
     const url = "http://localhost:5000/services";
@@ -16,8 +17,14 @@ const ServiceDetail = () => {
                 console.log(res.data)
             })
     }, [url])
-    const filter = service?.filter(service => service.email === email);
-    console.log(filter)
+
+    useEffect(() => {
+        if (service && email) {
+            const filteredResult = service.filter(service => service.email === email);
+            setFilteredService(filteredResult);
+        }
+    }, [service, email]);
+
     const handleBookNow = (loader) => {
         if (!user) {
             return (
@@ -99,6 +106,16 @@ const ServiceDetail = () => {
                     </div>
                 </div>
             </section>
+
+            <div>
+                <h2 className="text-center text-5xl mt-6">Services You May Like</h2>
+                <div className="grid grid-cols-3 mt-5">
+                    {
+                        filteredService?.map(serv => <ProviderServ key={serv._id} serv={serv}></ProviderServ>)
+                    }
+                </div>
+            </div>
+
             {/* Open the modal using document.getElementById('ID').showModal() method */}
             <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
@@ -111,7 +128,7 @@ const ServiceDetail = () => {
                                 <div className=" mt-5">
                                     <h1 className="text-xl">Service Name : {serviceName}</h1>
                                     <h1 className="text-xl">Provider Email : {email}</h1>
-                                    
+
                                     {
                                         user ? <><h2 className="text-xl">Your Email : {user?.email} </h2></> : <h2 className="text-xl">Login Required</h2>
                                     }

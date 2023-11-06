@@ -24,7 +24,7 @@ const ServiceCard = ({ servs }) => {
 
                 <div className='text-center border border-t-2 mt-4'>
                     <div className='grid grid-cols-2 border-gray-500'>
-                        <h2 className=' text-black'>Tool Sharing Service</h2>
+                        <h2 className=' text-black'>{serviceName}</h2>
                         <h2 className='text-black'>Price $ 1200</h2>
                     </div>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum sit magni, aut, odio officia dolorem totam non, sequi dolorem libero praesentium cum nam quis.</p>
