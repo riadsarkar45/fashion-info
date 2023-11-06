@@ -21,6 +21,7 @@ const Routes = createBrowserRouter([
             {
                 path: "/services",
                 element: <AllServices></AllServices>,
+                loader: () => fetch(`http://localhost:5000/services`)
             },
             {
                 path: "/detail/:id",
