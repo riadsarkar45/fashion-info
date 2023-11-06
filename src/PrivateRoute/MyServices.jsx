@@ -26,7 +26,7 @@ const MyServices = () => {
     }
 
     return (
-        <div className=" w-[65%] m-auto">
+        <div className=" w-[65%] m-auto mt-5">
             {/* This is an example component */}
             <div className="overflow-x-auto">
                 <table className="table text-white">

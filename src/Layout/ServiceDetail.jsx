@@ -37,7 +37,8 @@ const ServiceDetail = () => {
             )
         }
 
-        const dataToStore = { imgUrl, serviceName, servicePrice, serviceCat, email: user.email }
+        const dataToStore = { imgUrl, serviceName, servicePrice, serviceCat, email: user.email, status: 'Pending' }
+        console.log(dataToStore);
         fetch('http://localhost:5000/booking', {
             method: "POST",
             headers: {

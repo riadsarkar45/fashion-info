@@ -8,6 +8,8 @@ import Login from '../Layout/Login';
 import SignUp from '../Layout/SignUp';
 import MyServices from '../PrivateRoute/MyServices';
 import UpdateServ from '../PrivateRoute/UpdateServ';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import MyShedule from '../PrivateRoute/MyShedule';
 
 const Routes = createBrowserRouter([
     {
@@ -25,12 +27,12 @@ const Routes = createBrowserRouter([
             },
             {
                 path: "/detail/:id",
-                element: <ServiceDetail></ServiceDetail>,
+                element: <PrivateRoute><ServiceDetail></ServiceDetail></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
             },
             {
                 path: "/add-service",
-                element: <AddServices></AddServices>
+                element: <PrivateRoute><AddServices></AddServices></PrivateRoute>
             },
             {
                 path: "/login",
@@ -42,11 +44,15 @@ const Routes = createBrowserRouter([
             },
             {
                 path: "/my-services",
-                element: <MyServices></MyServices>
+                element: <PrivateRoute><MyServices></MyServices></PrivateRoute>
+            },
+            {
+                path: "/my-shedule",
+                element: <PrivateRoute><MyShedule></MyShedule></PrivateRoute>
             },
             {
                 path: "/update-serv/:id",
-                element: <UpdateServ></UpdateServ>,
+                element: <PrivateRoute><UpdateServ></UpdateServ></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
             }
         ]
