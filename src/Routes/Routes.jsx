@@ -6,7 +6,6 @@ import ServiceDetail from '../Layout/ServiceDetail';
 import AddServices from '../Layout/AddServices';
 import Login from '../Layout/Login';
 import SignUp from '../Layout/SignUp';
-import ProviderServ from '../Layout/ProviderServ.jsx/ProviderServ';
 import MyServices from '../PrivateRoute/MyServices';
 import UpdateServ from '../PrivateRoute/UpdateServ';
 
