@@ -8,6 +8,7 @@ import Login from '../Layout/Login';
 import SignUp from '../Layout/SignUp';
 import ProviderServ from '../Layout/ProviderServ.jsx/ProviderServ';
 import MyServices from '../PrivateRoute/MyServices';
+import UpdateServ from '../PrivateRoute/UpdateServ';
 
 const Routes = createBrowserRouter([
     {
@@ -42,6 +43,11 @@ const Routes = createBrowserRouter([
             {
                 path: "/my-services",
                 element: <MyServices></MyServices>
+            },
+            {
+                path: "/update-serv/:id",
+                element: <UpdateServ></UpdateServ>,
+                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
             }
         ]
     }

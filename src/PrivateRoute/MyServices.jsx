@@ -14,7 +14,7 @@ const MyServices = () => {
     }, [axiosSeceure, url]);
 
     const handeleDelete = _id => {
-        fetch(`http://localhost:5000/products/${_id}`, {
+        fetch(`http://localhost:5000/services/${_id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
@@ -24,6 +24,7 @@ const MyServices = () => {
                 console.log(data)
             })
     }
+
     return (
         <div className=" w-[65%] m-auto">
             {/* This is an example component */}
