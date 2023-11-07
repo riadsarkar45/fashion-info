@@ -5,13 +5,13 @@ import { toast } from "react-toastify";
 
 const Navebar = () => {
     const { user, logOut } = useContext(AuthContext);
-    const handleLogout = () =>{
+    const handleLogout = () => {
         logOut()
-        .then(result =>{
-            toast.success("LogOut Successfull");
-            console.log(result)
-        })
-        .catch(error => console.error(error))
+            .then(result => {
+                toast.success("LogOut Successfull");
+                console.log(result)
+            })
+            .catch(error => console.error(error))
     }
     const navLink = (
         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
@@ -22,7 +22,7 @@ const Navebar = () => {
                 <li tabIndex={0}>
                     <details>
                         <summary>Dashboard</summary>
-                        <ul className="p-2 w-[10rem]">
+                        <ul className="p-2">
                             <li><NavLink to="/add-service">Add Service</NavLink></li>
                             <li><NavLink to="/my-shedule">My Schedule</NavLink></li>
                             <li><NavLink to="/my-services">My Services</NavLink></li>
@@ -39,26 +39,26 @@ const Navebar = () => {
 
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/services">Services</NavLink></li>
-            <li><NavLink to="/add-service">Add Service</NavLink></li>
+
             {
                 user ? <>
-                    <li tabIndex={0}>
-                        <details>
-                            <summary>Dashboard</summary>
-                            <ul className="p-2 w-[10rem]">
+
+                    <li><NavLink to="/add-service">Add Service</NavLink></li>
+                    <li>
+                        <div className="dropdown dropdown-bottom">
+                            <label tabIndex={0} className="m-1">Dashboard</label>
+                            <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                                 <li><NavLink to="/add-service">Add Service</NavLink></li>
                                 <li><NavLink to="/my-shedule">My Shedule</NavLink></li>
                                 <li><NavLink to="/my-services">My Services</NavLink></li>
                             </ul>
-                        </details>
+                        </div>
                     </li>
                 </>
 
-                :
+                    :
 
-                <>
-                    
-                </>
+                    null
             }
         </ul>
     </>

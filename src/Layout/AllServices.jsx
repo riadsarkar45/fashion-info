@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import AllServicesCard from "./AllServicesCard";
 import { useState, useEffect } from "react";
-
+import { motion } from 'framer-motion'
 const AllServices = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [filteredLoad, setFilteredLoad] = useState(null);
@@ -47,7 +47,7 @@ const AllServices = () => {
 
     return (
         <div>
-            <div className="w-[85%] m-auto flex justify-between mt-4">
+            <div className="lg:w-[85%] md:w-[85%] m-auto lg:flex md:flex justify-between mt-4">
                 <form>
                     <input
                         type="text"
@@ -57,7 +57,7 @@ const AllServices = () => {
                         onChange={handleChange}
                     />
                 </form>
-                <div className="w-[6rem]">
+                <div className="md:w-[6rem] lg:w-[6rem]">
                     <select
                         className="select select-accent w-full max-w-xs"
                         onChange={(e) => setSortOrder(e.target.value)}
@@ -68,7 +68,7 @@ const AllServices = () => {
                     </select>
                 </div>
             </div>
-            <div className="w-[85%] m-auto grid grid-cols-3 gap-3 mt-5">
+            <div className="w-[85%] m-auto grid md:grid-cols-3 lg:grid-cols-3 grid-cols-1 gap-3 mt-5">
                 {filteredLoad ? (
                     filteredLoad.map((cards) => (
                         <AllServicesCard key={cards.id} cards={cards}></AllServicesCard>

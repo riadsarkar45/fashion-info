@@ -1,5 +1,4 @@
 import { Typewriter } from "react-simple-typewriter";
-import Services from "../Services";
 
 const Banner = () => {
     return (
@@ -85,7 +84,6 @@ const Banner = () => {
                 </div>
                 <div className="bg-gradient-to-b from-blue-50 to-transparent dark:from-blue-900  absolute top-0 left-0 z-0" />
             </section>
-            <Services></Services>
         </div>
     );
 };

@@ -13,6 +13,8 @@ const AddServices = () => {
         const servicePrice = form.servicePrice.value;
         const serviceCat = form.serviceCat.value;
         const email = user.email;
+        const uploaderName = user?.displayName;
+        const uploaderPhoto = user?.photoURL;
         const service = {
 
             imgUrl,
@@ -21,7 +23,9 @@ const AddServices = () => {
             serviceLoc,
             serviceCat,
             servicePrice,
-            email
+            email,
+            uploaderName,
+            uploaderPhoto
         }
 
         console.log(service)
@@ -37,6 +41,7 @@ const AddServices = () => {
             .then(data => {
                 console.log(data)
             })
+        
     }
     return (
         <div className='lg:w-[55%] m-auto mt-6'>

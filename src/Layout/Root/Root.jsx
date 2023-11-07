@@ -6,8 +6,8 @@ const Root = () => {
     return (
         <div>
             <Navebar></Navebar>
-            <ToastContainer />
             <Outlet></Outlet>
+            <ToastContainer />
         </div>
     );
 };

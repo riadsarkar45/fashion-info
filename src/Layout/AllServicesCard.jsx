@@ -1,28 +1,37 @@
 import { Link } from "react-router-dom";
-
-const AllServicesCard = ({cards}) => {
+import { motion } from 'framer-motion'
+import { useRef } from "react";
+const AllServicesCard = ({ cards }) => {
     const { imgUrl, serviceName, serviceCat, servicePrice, serviceLoc, desc, _id } = cards;
-
+    const constraintsRef = useRef(null)
     return (
         <div>
-            <div className="bg-white  w-[21rem]">
 
-                <img className="w-full h-[165px]" src={imgUrl} alt="" />
-                <div className='flex mt-3 gap-3 items-center ml-4'>
-                    <img src={imgUrl} className='rounded-3xl w-[11%]' alt="" />
-                    <h2 className='text-2xl text-black'>Riad Sarkar</h2>
-                </div>
+            <div className="card md:w-[20rem] lg:w-[20rem] h-[22rem] bg-base-100 shadow-xl">
+                <figure>
+                    <motion.div ref={constraintsRef}>
+                        <motion.img
+                            className='w-full h-[10rem]'
+                            src={imgUrl}
+                            drag
+                            dragConstraints={constraintsRef}
+                        />
+                    </motion.div>
+                </figure>
+                <div className="card-body">
+                    <h2 className="card-title">
+                        Shoes!
+                        <div className="badge badge-secondary">NEW</div>
+                    </h2>
+                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <div className="card-actions  w-full">
+                        <motion.div whileHover={{ scale: 1.2 }}>
+                            <Link to={`/detail/${_id}`} className="w-full">
+                                <button className="badge badge-outline md:w-[16rem] lg:w-[16rem] p-3">View Detail</button>
+                            </Link>
+                        </motion.div>
 
-                <div className='text-center border border-t-2 mt-4'>
-                    <div className='grid grid-cols-2 border-gray-500'>
-                        <h2 className=' text-black'>{serviceName}</h2>
-                        <h2 className='text-black'>Price $ {servicePrice}</h2>
                     </div>
-
-                </div>
-
-                <div className='p-4'>
-                    <Link to={`/detail/${_id}`}><button className="btn btn-primary w-full">See Details</button></Link>
                 </div>
             </div>
         </div>

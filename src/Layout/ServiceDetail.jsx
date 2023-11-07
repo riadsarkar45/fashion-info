@@ -6,7 +6,8 @@ import axios from "axios";
 import ProviderServ from "./ProviderServ.jsx/ProviderServ";
 const ServiceDetail = () => {
     const [service, setService] = useState([])
-    const [filteredService, setFilteredService] = useState([]); const { user } = useContext(AuthContext);
+    const [filteredService, setFilteredService] = useState([]);
+    const { user } = useContext(AuthContext);
     const loader = useLoaderData();
     const { imgUrl, desc, serviceName, servicePrice, serviceLoc, serviceCat, email, _id } = loader;
     const url = "http://localhost:5000/services";
@@ -25,19 +26,12 @@ const ServiceDetail = () => {
         }
     }, [service, email]);
 
-    const handleBookNow = (loader) => {
-        if (!user) {
-            return (
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Login required',
-                    footer: '<a href="">Why do I have this issue?</a>'
-                })
-            )
-        }
-
-        const dataToStore = { imgUrl, serviceName, servicePrice, serviceCat, serviceLoc, email: user.email, status: 'Pending' }
+    const handleBookNow = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const instruct = form.instruct.value;
+        const date = form.date.value;
+        const dataToStore = { imgUrl, serviceName, servicePrice, serviceCat, serviceLoc, email: user.email, status: 'Pending', date, instruct }
         console.log(dataToStore);
         fetch('http://localhost:5000/booking', {
             method: "POST",
@@ -110,7 +104,7 @@ const ServiceDetail = () => {
 
             <div>
                 <h2 className="text-center text-5xl mt-6">Services You May Like</h2>
-                <div className="grid grid-cols-3 mt-5">
+                <div className="grid lg:grid-cols-3 md:grid-cols-3 grid-cols-1 mt-5 gap-3">
                     {
                         filteredService?.map(serv => <ProviderServ key={serv._id} serv={serv}></ProviderServ>)
                     }
@@ -121,7 +115,7 @@ const ServiceDetail = () => {
             <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
                     <div className="modal-action">
-                        <form method="dialog">
+                        <form  onSubmit={(e) => handleBookNow(e, loader)} method="dialog">
                             <div className="w-full">
                                 <div className="text-center">
                                     <img className="w-[30rem]" src={imgUrl} alt="" />
@@ -134,10 +128,21 @@ const ServiceDetail = () => {
                                         user ? <><h2 className="text-xl">Your Email : {user?.email} </h2></> : <h2 className="text-xl">Login Required</h2>
                                     }
                                 </div>
+                                <div className="form-control w-full max-w-xs">
+                                    <label className="label">
+                                        <span className="label-text">Service taking date</span>
+                                    </label>
+                                    <input type="date" name="date" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Special Instruction</span>
+                                    </label>
+                                    <textarea name="instruct" className="textarea textarea-bordered h-24" placeholder="Special Instructions"></textarea>
+                                </div>
                             </div>
-                            <div className="grid grid-cols-2 gap-3 mt-4">
-                                <button onClick={() => handleBookNow(loader)} className="btn btn-md btn-success">Purchase this Service</button>
-                                <button className="btn btn-md btn-error">Close</button>
+                            <div className="grid grid-cols-2 gap-3 mt-4 w-full">
+                                <button className="w-full btn btn-md btn-success">Purchase this Service</button>
                             </div>
                         </form>
                     </div>

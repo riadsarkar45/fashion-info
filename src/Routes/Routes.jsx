@@ -1,6 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Root from '../Layout/Root/Root';
-import Banner from '../Layout/Banner/Banner';
 import AllServices from '../Layout/AllServices';
 import ServiceDetail from '../Layout/ServiceDetail';
 import AddServices from '../Layout/AddServices';
@@ -10,6 +9,7 @@ import MyServices from '../PrivateRoute/MyServices';
 import UpdateServ from '../PrivateRoute/UpdateServ';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import MyShedule from '../PrivateRoute/MyShedule';
+import Services from '../Layout/Services';
 
 const Routes = createBrowserRouter([
     {
@@ -18,7 +18,7 @@ const Routes = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Banner></Banner>,
+                element: <Services></Services>
             },
             {
                 path: "/services",
