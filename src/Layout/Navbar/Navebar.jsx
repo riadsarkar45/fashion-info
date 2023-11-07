@@ -24,7 +24,7 @@ const Navebar = () => {
                         <summary>Dashboard</summary>
                         <ul className="p-2 w-[10rem]">
                             <li><NavLink to="/add-service">Add Service</NavLink></li>
-                            <li><NavLink to="/my-schedule">My Schedule</NavLink></li>
+                            <li><NavLink to="/my-shedule">My Schedule</NavLink></li>
                             <li><NavLink to="/my-services">My Services</NavLink></li>
                         </ul>
                     </details>
