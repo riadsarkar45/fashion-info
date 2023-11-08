@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -46,6 +47,9 @@ const UpdateServ = () => {
     }
     return (
         <div className='lg:w-[55%] m-auto mt-6'>
+            <Helmet>
+                <title>Update Service</title>
+            </Helmet>
             <form onSubmit={handleUpdate}>
                 <div className="grid lg:grid-cols-2 md:grid-cols-2">
                     <div>

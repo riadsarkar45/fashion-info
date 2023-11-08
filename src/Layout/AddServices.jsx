@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const AddServices = () => {
     const { user } = useContext(AuthContext)
@@ -45,6 +46,9 @@ const AddServices = () => {
     }
     return (
         <div className='lg:w-[55%] m-auto mt-6'>
+            <Helmet>
+                <title>Add Service</title>
+            </Helmet>
             <form onSubmit={handleAddServices}>
                 <div className="grid lg:grid-cols-2 md:grid-cols-2">
                     <div>

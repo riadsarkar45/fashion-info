@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const SignUp = () => {
     const { creatUser, updateUser, logOut } = useContext(AuthContext);
@@ -39,6 +40,9 @@ const SignUp = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>SignUp</title>
+            </Helmet>
             {/* component */}
             <div className="bg-grey-lighter flex flex-col">
                 <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">

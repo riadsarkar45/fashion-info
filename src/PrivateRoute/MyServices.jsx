@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import TableRow from "./TableRow";
+import { Helmet } from "react-helmet-async";
 
 const MyServices = () => {
     const { user } = useContext(AuthContext);
@@ -31,6 +32,9 @@ const MyServices = () => {
 
     return (
         <div className="w-[85%] m-auto">
+            <Helmet>
+                <title>My Services</title>
+            </Helmet>
             <div>
                 {
                     loading ? (

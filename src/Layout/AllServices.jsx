@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import AllServicesCard from "./AllServicesCard";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 
 const AllServices = () => {
     const [searchQuery, setSearchQuery] = useState("");
@@ -51,6 +52,9 @@ const AllServices = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>All Services</title>
+            </Helmet>
             <div className="lg:w-[85%] md:w-[85%] m-auto lg:flex md:flex justify between mt-4">
                 <form>
                     <input

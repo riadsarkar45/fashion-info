@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import Shedrows from "./Shedrows";
+import { Helmet } from "react-helmet-async";
 
 const MyShedule = () => {
     const [myShedule, setMyshedule] = useState([]);
@@ -48,6 +49,9 @@ const MyShedule = () => {
 
     return (
         <div className="w-[85%] m-auto">
+            <Helmet>
+                <title>My Shedule</title>
+            </Helmet>
             <div>
                 {
                     loading ? (

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
-
+import { FaStar } from 'react-icons/fa';
 const Navebar = () => {
     const { user, logOut } = useContext(AuthContext);
     const handleLogout = () => {
@@ -75,7 +75,7 @@ const Navebar = () => {
 
 
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <a className="btn btn-ghost normal-case text-xl"><FaStar></FaStar> Fashion Info</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 {nav}

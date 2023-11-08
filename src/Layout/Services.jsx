@@ -6,6 +6,7 @@ import Banner from './Banner/Banner';
 import ShowBlogs from './ShowBlogs';
 import PricingPlans from './PricingPlans';
 import Faq from './Faq';
+import { Helmet } from 'react-helmet-async';
 const Services = () => {
     const [showAll, setShowAll] = useState(false)
     const [service, setService] = useState([])
@@ -23,6 +24,9 @@ const Services = () => {
     return (
 
         <div className=''>
+            <Helmet>
+                <title>Coolie | Go</title>
+            </Helmet>
             {
                 loading ? (
                     <div className="flex items-center justify-center h-screen">
@@ -53,7 +57,7 @@ const Services = () => {
                             <Link to="/services"><button className='btn btn-secondary text-center'>Show All Services</button></Link>
 
                         </div>
-                        
+
                         <ShowBlogs></ShowBlogs>
                         <Faq></Faq>
                         <PricingPlans></PricingPlans>

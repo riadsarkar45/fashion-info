@@ -5,6 +5,7 @@ import Swal from 'sweetalert2'
 import axios from "axios";
 import ProviderServ from "./ProviderServ.jsx/ProviderServ";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 const ServiceDetail = () => {
     const [service, setService] = useState([])
     const [filteredService, setFilteredService] = useState([]);
@@ -50,6 +51,9 @@ const ServiceDetail = () => {
     console.log(loader)
     return (
         <div className="w-[85%] m-auto">
+            <Helmet>
+                <title>Service Detail</title>
+            </Helmet>
             <section className="py-20 overflow-hidden bg-white font-poppins h-[39rem] dark:bg-gray-50">
                 <div className="lg:py-8 md:px-6">
                     <div className="flex flex-wrap -mx-4">
