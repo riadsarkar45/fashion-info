@@ -11,11 +11,13 @@ import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import MyShedule from '../PrivateRoute/MyShedule';
 import Services from '../Layout/Services';
 import Blog from '../PrivateRoute/Blog';
+import ErrorPage from '../Layout/ErrorPage';
 
 const Routes = createBrowserRouter([
     {
         path: "/", 
         element: <Root></Root>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",

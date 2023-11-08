@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 const SignUp = () => {
@@ -108,12 +108,12 @@ const SignUp = () => {
                     </div>
                     <div className="text-grey-dark mt-6">
                         Already have an account?
-                        <a
+                        <Link to="/register"
                             className="no-underline border-b border-blue text-blue"
-                            href="../login/"
+                            
                         >
                             Log in
-                        </a>
+                        </Link>
                         .
                     </div>
                 </div>
