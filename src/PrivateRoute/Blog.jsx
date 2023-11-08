@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
+import Swal from 'sweetalert2';
 
 const Blog = () => {
     const {user} = useContext(AuthContext);
@@ -36,6 +37,13 @@ const Blog = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Blog Added",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
                 e.target.reset()
             })
         

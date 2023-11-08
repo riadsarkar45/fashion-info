@@ -42,7 +42,7 @@ const AddServices = () => {
             .then(res => res.json())
             .then(data => {
                 Swal.fire({
-                    position: "",
+                    position: "center",
                     icon: "success",
                     title: "Service Added",
                     showConfirmButton: false,
