@@ -4,13 +4,14 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import Swal from 'sweetalert2'
 import axios from "axios";
 import ProviderServ from "./ProviderServ.jsx/ProviderServ";
+import { toast } from "react-toastify";
 const ServiceDetail = () => {
     const [service, setService] = useState([])
     const [filteredService, setFilteredService] = useState([]);
     const { user } = useContext(AuthContext);
     const loader = useLoaderData();
-    const { imgUrl, desc, serviceName, servicePrice, serviceLoc, serviceCat, email, _id } = loader;
-    const url = "http://localhost:5000/services";
+    const { imgUrl, desc, serviceName, servicePrice, serviceLoc, serviceCat, email, _id, uploaderName, uploaderPhoto } = loader;
+    const url = "https://assignment-11-server-one-sandy.vercel.app/services";
     useEffect(() => {
         axios.get(url)
             .then(res => {
@@ -31,9 +32,9 @@ const ServiceDetail = () => {
         const form = e.target;
         const instruct = form.instruct.value;
         const date = form.date.value;
-        const dataToStore = { imgUrl, serviceName, servicePrice, serviceCat, serviceLoc, email: user.email, status: 'Pending', date, instruct }
+        const dataToStore = { imgUrl, serviceName, servicePrice, serviceCat, serviceLoc, email, Useremail: user.email, status: 'Pending', date, instruct }
         console.log(dataToStore);
-        fetch('http://localhost:5000/booking', {
+        fetch('https://assignment-11-server-one-sandy.vercel.app/booking', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -42,19 +43,19 @@ const ServiceDetail = () => {
         })
             .then(res => res.json())
             .then(data => {
-
+                toast.success("Item Purchased")
                 console.log(data)
             })
     }
     console.log(loader)
     return (
         <div className="w-[85%] m-auto">
-            <section className="py-20 overflow-hidden bg-white font-poppins h-auto dark:bg-gray-800">
-                <div className="max-w-6xl px-4 py-4 mx-auto lg:py-8 md:px-6">
+            <section className="py-20 overflow-hidden bg-white font-poppins h-[39rem] dark:bg-gray-50">
+                <div className="lg:py-8 md:px-6">
                     <div className="flex flex-wrap -mx-4">
                         <div className="w-full px-4 md:w-1/2 ">
-                            <div className="sticky top-0 z-50 overflow-hidden ">
-                                <div className="relative mb-6 lg:mb-10" style={{ height: 450 }}>
+                            <div className="sticky overflow-hidden ">
+                                <div className="relative lg:mb-10" style={{ height: 450 }}>
                                     <img
                                         src={imgUrl}
                                         alt=""
@@ -79,13 +80,13 @@ const ServiceDetail = () => {
                                         <h2 className="text-2xl">Service Provider Detail</h2>
                                         <div className="mt-8">
                                             <div className="flex gap-4 items-center">
-                                                <img src="https://i.ibb.co/MZwCv5m/tech-daily-pz-L0-Yp-SVv-E-unsplash.jpg" className="w-[20%] rounded-3xl" alt="" />
-                                                <p className="text-2xl ">Riad Sarkar</p>
+                                                <img src={uploaderPhoto} className="w-[12%] h-[53px] rounded-3xl" alt="" />
+                                                <p className="text-2xl ">{uploaderName}</p>
                                             </div>
                                         </div>
                                     </div>
                                     <p className="inline-block text-2xl font-semibold text-gray-700 dark:text-gray-400 mt-10">
-                                        <span>${servicePrice}</span>
+                                        <span>Price: $ {servicePrice}</span>
                                     </p>
                                 </div>
                                 <div className="flex flex-wrap items-center ">
@@ -115,7 +116,7 @@ const ServiceDetail = () => {
             <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
                     <div className="modal-action">
-                        <form  onSubmit={(e) => handleBookNow(e, loader)} method="dialog">
+                        <form onSubmit={(e) => handleBookNow(e, loader)} method="dialog">
                             <div className="w-full">
                                 <div className="text-center">
                                     <img className="w-[30rem]" src={imgUrl} alt="" />

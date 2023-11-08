@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import auth from "../Fibase";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import axios from "axios";
 
 export const AuthContext = createContext(null);
@@ -22,6 +22,11 @@ const AuthProvider = ({ children }) => {
         })
         setLoading(true)
     }
+    const provider = new GoogleAuthProvider ()
+    const googleSignIn = () =>{
+        return signInWithPopup(auth, provider);
+        setLoading(true)
+    }
     const logOut = () => {
         return signOut(auth)
         setLoading(true)
@@ -34,12 +39,12 @@ const AuthProvider = ({ children }) => {
             const loggedUser = {email: userEmail};
             setUser(currentUser);
             if(currentUser){
-                axios.post('http://localhost:5000/jwt', loggedUser, {withCredentials: true})
+                axios.post('https://assignment-11-server-one-sandy.vercel.app/jwt', loggedUser, {withCredentials: true})
                 .then(res => {
                     console.log(res.data);
                 })
             }else {
-                axios.post('http://localhost:5000/logout', loggedUser, {withCredentials: true})
+                axios.post('https://assignment-11-server-one-sandy.vercel.app/logout', loggedUser, {withCredentials: true})
                 .then(res => {
                     console.log(res.data)
                 })
@@ -49,7 +54,7 @@ const AuthProvider = ({ children }) => {
             return unsubsCribe;
         }
     }, [])
-    const authInfo = { creatUser, SignIn, logOut, user, updateUser, isLoading };
+    const authInfo = { creatUser, SignIn, logOut, user, updateUser, isLoading, googleSignIn };
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

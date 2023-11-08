@@ -26,7 +26,7 @@ const UpdateServ = () => {
         }
 
 
-        fetch(`http://localhost:5000/services/${_id}`, {
+        fetch(`https://assignment-11-server-one-sandy.vercel.app/services/${_id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"
@@ -49,15 +49,15 @@ const UpdateServ = () => {
             <form onSubmit={handleUpdate}>
                 <div className="grid lg:grid-cols-2 md:grid-cols-2">
                     <div>
-                        <input type="text" name="imgUrl" defaultValue={imgUrl} className="lg:w-[21rem] md:w-[21rem] w-[21rem] p-2 h-[9rem] rounded-md" placeholder="Image Url" />
-                        <textarea name="desc" defaultValue={desc} className="lg:w-[21rem] md:w-[21rem] w-[21rem] p-2 h-[9rem] rounded-md mt-4" placeholder="Service Description" ></textarea>
+                        <input type="text" name="imgUrl" defaultValue={imgUrl} className="lg:w-[21rem] md:w-[21rem] w-[21rem] p-2 h-[9rem] rounded-md input input-bordered input-primary" placeholder="Image Url" />
+                        <textarea name="desc" defaultValue={desc} className="lg:w-[21rem] md:w-[21rem] w-[21rem] p-2 h-[9rem] rounded-md mt-4 input input-bordered input-primary" placeholder="Service Description" ></textarea>
 
                     </div>
                     <div className="">
-                        <input type="text" name="serviceName"  defaultValue={serviceName} className="md:w-[22rem] lg:w-[22rem] w-[21rem] mt-3 rounded-md h-[3rem] p-2" placeholder="Service Name" />
-                        <input type="text" name="serviceLoc"   defaultValue={serviceLoc} className="md:w-[22rem] lg:w-[22rem] w-[21rem] rounded-md h-[3rem] p-2 mt-5" placeholder="Service Location" />
-                        <input type="text" name="servicePrice" defaultValue={servicePrice} className="md:w-[22rem] lg:w-[22rem] w-[21rem] rounded-md h-[3rem] p-2 mt-5" placeholder="Price" />
-                        <select name="serviceCat" className="md:w-[22rem] lg:w-[22rem] w-[21rem] rounded-md h-[3rem] p-2 mt-5" >
+                        <input type="text" name="serviceName"  defaultValue={serviceName} className="md:w-[22rem] lg:w-[22rem] w-[21rem] mt-3 rounded-md h-[3rem] p-2 input input-bordered input-primary" placeholder="Service Name" />
+                        <input type="text" name="serviceLoc"   defaultValue={serviceLoc} className="md:w-[22rem] lg:w-[22rem] w-[21rem] rounded-md h-[3rem] p-2 mt-5 input input-bordered input-primary" placeholder="Service Location" />
+                        <input type="text" name="servicePrice" defaultValue={servicePrice} className="md:w-[22rem] lg:w-[22rem] w-[21rem] rounded-md h-[3rem] p-2 mt-5 input input-bordered input-primary" placeholder="Price" />
+                        <select name="serviceCat" className="md:w-[22rem] lg:w-[22rem] w-[21rem] rounded-md h-[3rem] p-2 mt-5 input input-bordered input-primary" >
                             <option defaultValue={serviceCat} defaultChecked>{serviceCat}</option>
                             <option value="Tool Sharing">Tool Sharing</option>
                             <option value="Home Services Exchange">Home Services Exchange</option>

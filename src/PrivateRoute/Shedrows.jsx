@@ -33,14 +33,3 @@ const Shedrows = ({ shed, handleStatus }) => {
 };
 
 export default Shedrows;
-
-
-
-
-{/* <th>
-                <select onChange={(e) => handleStatus(_id, e.target.value)} className="text-black select select-accent w-full max-w-xs">
-                    <option value="Pending">Pending</option>
-                    <option value="Completed">Completed</option>
-                    <option value="Inprogress">In Progress</option>
-                </select>
-            </th> */}

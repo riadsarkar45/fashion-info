@@ -11,7 +11,7 @@ const MyShedule = () => {
     const url = `/booking?email=${user?.email}`;
 
     const handleStatus = (_id, newStatus) => {
-        fetch(`http://localhost:5000/booking/service/${_id}`, {
+        fetch(`https://assignment-11-server-one-sandy.vercel.app/booking/service/${_id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"

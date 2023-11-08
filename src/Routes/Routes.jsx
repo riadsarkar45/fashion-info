@@ -10,6 +10,7 @@ import UpdateServ from '../PrivateRoute/UpdateServ';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import MyShedule from '../PrivateRoute/MyShedule';
 import Services from '../Layout/Services';
+import Blog from '../PrivateRoute/Blog';
 
 const Routes = createBrowserRouter([
     {
@@ -23,12 +24,12 @@ const Routes = createBrowserRouter([
             {
                 path: "/services",
                 element: <AllServices></AllServices>,
-                loader: () => fetch(`http://localhost:5000/services`)
+                loader: () => fetch(`https://assignment-11-server-one-sandy.vercel.app/services`)
             },
             {
                 path: "/detail/:id",
                 element: <PrivateRoute><ServiceDetail></ServiceDetail></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment-11-server-one-sandy.vercel.app/services/${params.id}`)
             },
             {
                 path: "/add-service",
@@ -53,7 +54,11 @@ const Routes = createBrowserRouter([
             {
                 path: "/update-serv/:id",
                 element: <PrivateRoute><UpdateServ></UpdateServ></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment-11-server-one-sandy.vercel.app/services/${params.id}`)
+            },
+            {
+                path: "/blog",
+                element: <Blog></Blog>
             }
         ]
     }

@@ -2,8 +2,9 @@ import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { FaGoogle } from 'react-icons/fa';
 const Login = () => {
-    const { SignIn } = useContext(AuthContext);
+    const { SignIn, googleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const handleLogin = (e) => {
         e.preventDefault();
@@ -21,6 +22,14 @@ const Login = () => {
             .catch(error => {
                 toast(error.message)
             })
+    }
+
+    const handleGoogleSignIn = () =>{
+        googleSignIn()
+        .then(res => {
+            toast.success("Loging Successfull");
+        })
+        .catch(error => console.error(error))
     }
     return (
         <section className="bg-gray-50 dark:bg-gray-900">
@@ -71,7 +80,7 @@ const Login = () => {
                             </button>
                             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                                 Don’t have an account yet?{" "}
-                                <Link to="/signup"
+                                <Link to="/register"
                                     href="#"
                                     className="font-medium text-primary-600 hover:underline dark:text-primary-500"
                                 >
@@ -79,6 +88,8 @@ const Login = () => {
                                 </Link>
                             </p>
                         </form>
+                        
+                        <button onClick={handleGoogleSignIn} className="btn btn-outline btn-warning w-full"><FaGoogle></FaGoogle> Sign In With Google</button>
                     </div>
                 </div>
             </div>

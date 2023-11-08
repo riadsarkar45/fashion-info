@@ -39,6 +39,7 @@ const Navebar = () => {
 
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/services">Services</NavLink></li>
+            <li><NavLink to="/blog">Write Blow</NavLink></li>
 
             {
                 user ? <>
