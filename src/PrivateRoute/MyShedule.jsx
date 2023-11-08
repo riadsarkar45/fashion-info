@@ -34,29 +34,48 @@ const MyShedule = () => {
         console.log(_id, newStatus);
     };
 
+
+
     useEffect(() => {
         axiosSeceure.get(url)
             .then(res => {
                 setMyshedule(res.data)
                 setLoading(false)
+                console.log(res.data)
             })
     }, [axiosSeceure, url]);
 
+
     return (
         <div className="w-[85%] m-auto">
-            {
-                loading ? (
-                    <div className="flex items-center justify-center h-screen">
-                        <img
-                            src="https://i.ibb.co/kqB1PZ5/23358104-2464-removebg-preview.png"
-                            alt=""
-                        />
-                    </div>
-                ) : null
-            }
-            <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-3">
+            <div>
                 {
-                    myShedule?.map(shed => <Shedrows key={shed._id} shed={shed} handleStatus={handleStatus}></Shedrows>)
+                    loading ? (
+                        <div className="flex items-center justify-center h-screen">
+                            <img
+                                src="https://i.ibb.co/kqB1PZ5/23358104-2464-removebg-preview.png"
+                                alt=""
+                            />
+                        </div>
+                    ) : null
+                }
+            </div>
+            <p>My Shedule : {myShedule.length}</p>
+            <div>
+                {
+                    myShedule?.length === 0 ? (
+                        <div className="w-[35%] m-auto">
+                            <img src="https://i.ibb.co/jJpf1zN/49e58d5922019b8ec4642a2e2b9291c2.png" alt="" />
+                        </div>
+                    ) : (
+                        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-3">
+                            {
+                                myShedule?.map(shed => <Shedrows key={shed._id} shed={shed} handleStatus={handleStatus}></Shedrows>)
+                            }
+
+                        </div>
+
+                    )
                 }
             </div>
         </div>
