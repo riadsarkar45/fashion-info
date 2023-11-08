@@ -64,7 +64,6 @@ const MyShedule = () => {
                     ) : null
                 }
             </div>
-            <p>My Shedule : {myShedule.length}</p>
             <div>
                 {
                     myShedule?.length === 0 ? (
