@@ -59,8 +59,8 @@ const Services = () => {
                         </div>
 
                         <ShowBlogs></ShowBlogs>
-                        <Faq></Faq>
                         <PricingPlans></PricingPlans>
+                        <Faq></Faq>
                     </div>
                 )
             }

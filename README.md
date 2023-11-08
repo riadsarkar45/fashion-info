@@ -1,8 +1,23 @@
-# React + Vite
+# Live Site Link
+# http://hurt-gold.surge.sh/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Site features
+    
+    => Complete responsive site.
+    => User can book service use it 
+    => User can change status of service (Complete, Inprogress, Pending)
+    => Service owner can edit and delete the service
+    => Blog writing option is also enabled
+    => Showing loading image on loading state
+    => User can search for specific service he/she needed
+    => Every CRUD will show toast if successfull if fail then it will show faild toast
 
-Currently, two official plugins are available:
+# Packages i have used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    => React simple type writer
+    => React motion framer
+    => Showing loading /jpg on loading state
+    => Extra Section blow writing route
+    => Explored and implemented DRAG feature of the animations from the Framer Motion
+    => Css Packages (Tailwind framework (Tailwind Css, Flowbite, DaisyUi))
+
