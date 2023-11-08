@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
@@ -7,6 +7,16 @@ const Blog = () => {
     const {user} = useContext(AuthContext);
     const handleAddServices = e => {
         e.preventDefault();
+        
+        if(!user){
+            return (
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Login Required",
+                  })
+            )
+        }
         const form = e.target;
         const desc = form.desc.value;
         const serviceName = form.serviceName.value;
