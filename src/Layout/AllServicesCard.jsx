@@ -24,7 +24,6 @@ const AllServicesCard = ({ cards }) => {
                 <div className="card-body">
                     <h2 className="card-title">
                         {serviceName}
-                        <div className="badge badge-secondary">NEW</div>
                     </h2>
                     <span className="badge badge-outline p-3">Price: ${servicePrice}</span>
                     <span className="flex items-center gap-4 text-xl">

@@ -91,9 +91,14 @@ const Navebar = () => {
                                 </div>
                             </label>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                                <li>
+                            <li>
                                     <a className="justify-between">
                                         {user.displayName}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a className="justify-between">
+                                        {user.email}
                                     </a>
                                 </li>
                                 <li onClick={handleLogout}><a>Logout</a></li>

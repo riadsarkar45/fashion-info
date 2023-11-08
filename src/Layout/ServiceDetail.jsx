@@ -33,7 +33,7 @@ const ServiceDetail = () => {
         const form = e.target;
         const instruct = form.instruct.value;
         const date = form.date.value;
-        const dataToStore = { imgUrl, serviceName, servicePrice, serviceCat, serviceLoc, email, Useremail: user.email, status: 'Pending', date, instruct }
+        const dataToStore = { imgUrl, serviceName, servicePrice, serviceCat, serviceLoc, Useremail: email, email: user.email, status: 'Pending', date, instruct }
         console.log(dataToStore);
         fetch('https://assignment-11-server-one-sandy.vercel.app/booking', {
             method: "POST",
