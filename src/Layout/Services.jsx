@@ -25,7 +25,7 @@ const Services = () => {
 
         <div className=''>
             <Helmet>
-                <title>Coolie | Go</title>
+                <title>Fashion World</title>
             </Helmet>
             {
                 loading ? (
