@@ -17,18 +17,21 @@ const Navebar = () => {
         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/services">Services</NavLink></li>
-            <li><NavLink to="/add-service">Add Service</NavLink></li>
             {user ? (
-                <li tabIndex={0}>
-                    <details>
-                        <summary>Dashboard</summary>
-                        <ul className="p-2">
-                            <li><NavLink to="/add-service">Add Service</NavLink></li>
-                            <li><NavLink to="/my-shedule">My Schedule</NavLink></li>
-                            <li><NavLink to="/my-services">My Services</NavLink></li>
-                        </ul>
-                    </details>
-                </li>
+                <>
+                    <li><NavLink to="/add-service">Add Service</NavLink></li>
+                    <li tabIndex={0}>
+                        <details>
+                            <summary>Dashboard</summary>
+                            <ul className="p-2">
+                                <li><NavLink to="/add-service">Add Service</NavLink></li>
+                                <li><NavLink to="/my-shedule">My Schedule</NavLink></li>
+                                <li><NavLink to="/my-services">My Services</NavLink></li>
+                            </ul>
+                        </details>
+                    </li>
+                </>
+
             ) : null}
         </ul>
     );
@@ -91,7 +94,7 @@ const Navebar = () => {
                                 </div>
                             </label>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <li>
+                                <li>
                                     <a className="justify-between">
                                         {user.displayName}
                                     </a>

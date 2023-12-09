@@ -1,8 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import Swal from 'sweetalert2'
-import axios from "axios";
+import { FaGoogle, FaLocationArrow, FaMapMarker } from 'react-icons/fa'; import axios from "axios";
 import ProviderServ from "./ProviderServ.jsx/ProviderServ";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
@@ -54,7 +53,7 @@ const ServiceDetail = () => {
             <Helmet>
                 <title>Service Detail</title>
             </Helmet>
-            <section className="py-20 overflow-hidden bg-white font-poppins h-[39rem] dark:bg-gray-50">
+            <section className="py-20 overflow-hidden bg-white font-poppins dark:bg-gray-50">
                 <div className="lg:py-8 md:px-6">
                     <div className="flex flex-wrap -mx-4">
                         <div className="w-full px-4 md:w-1/2 ">
@@ -71,9 +70,7 @@ const ServiceDetail = () => {
                         <div className="w-full px-4 md:w-1/2 ">
                             <div className="lg:pl-20">
                                 <div className="pb-6 mb-8 border-b border-gray-200 dark:border-gray-700">
-                                    <span className="text-lg font-medium text-rose-500 dark:text-rose-200">
-                                        New
-                                    </span>
+                                    
                                     <h2 className="max-w-xl mt-2 mb-6 text-xl font-bold dark:text-gray-300 md:text-4xl">
                                         {serviceName}
                                     </h2>
@@ -88,10 +85,16 @@ const ServiceDetail = () => {
                                                 <p className="text-2xl ">{uploaderName}</p>
                                             </div>
                                         </div>
+                                        <div className="grid grid-cols-2 gap-1 mt-5">
+
+                                            <FaMapMarker></FaMapMarker>
+                                            {serviceLoc}
+                                        </div>
                                     </div>
                                     <p className="inline-block text-2xl font-semibold text-gray-700 dark:text-gray-400 mt-10">
                                         <span>Price: $ {servicePrice}</span>
                                     </p>
+
                                 </div>
                                 <div className="flex flex-wrap items-center ">
 

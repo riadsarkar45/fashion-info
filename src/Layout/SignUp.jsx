@@ -108,7 +108,7 @@ const SignUp = () => {
                     </div>
                     <div className="text-grey-dark mt-6">
                         Already have an account?
-                        <Link to="/register"
+                        <Link to="/login"
                             className="no-underline border-b border-blue text-blue"
                             
                         >
